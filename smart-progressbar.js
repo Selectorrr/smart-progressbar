@@ -7,8 +7,8 @@
 
 'use strict';
 
-angular.module('Selectorrr.angular-smart-progressbar', [])
-.factory('selSmartProgressbar', [ function () {
+angular.module('sel.angular-smart-progressbar', [])
+.factory('SmartProgressbar', [ function () {
 
 	//public methods & properties
 	var self ={

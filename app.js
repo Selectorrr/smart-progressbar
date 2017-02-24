@@ -7,7 +7,7 @@
 
 angular.module('myApp', [
 'ngRoute', 'ngSanitize', 'ngTouch',		//additional angular modules
-'Selectorrr.angular-smart-progressbar'
+'sel.angular-smart-progressbar'
 ]).
 config(['$routeProvider', '$locationProvider', '$compileProvider', function($routeProvider, $locationProvider, $compileProvider) {
 	/**
@@ -19,8 +19,8 @@ config(['$routeProvider', '$locationProvider', '$compileProvider', function($rou
 	// var staticPath ='/';
 	var staticPath;
 	// staticPath ='/angular-services/angular-smart-progressbar/';		//local
-	staticPath ='/';		//nodejs (local)
-	// staticPath ='/angular-smart-progressbar/';		//gh-pages
+	// staticPath ='/';		//nodejs (local)
+	staticPath ='/angular-smart-progressbar/';		//gh-pages
 	var appPathRoute ='/';
 	var pagesPath =staticPath+'pages/';
 	
