@@ -5,15 +5,15 @@ angular.module('angular-smart-progressbar', [])
         $provide.decorator('ngClickDirective', [
             '$delegate', '$parse',
             function ($delegate, $parse) {
-                $delegate[0].compile = function ($element, attr) {
-                    var fn = $parse(attr['ngClick'], /* expensiveChecks */ true);
+                $delegate[0].compile = function($element, attr) {
+                    var fn = $parse(attr['ngClick']);
                     fn = debounce(fn, 500, {
                         leading: true,
                         trailing: false
                     });
                     return function ngEventHandler(scope, element) {
-                        element.on('click', function (event) {
-                            var callback = function () {
+                        element.on('click', function(event) {
+                            var callback = function() {
                                 fn(scope, {$event: event});
                             };
                             scope.$apply(callback);
