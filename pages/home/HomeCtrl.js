@@ -35,9 +35,6 @@ angular.module('myApp').controller('HomeCtrl', ['$scope', '$http', '$sce', funct
                 // since this is just for an example, don't display all 100, just the first 5
                 var posts = response.data.data.children.slice(0, 5);
                 $scope.posts = posts;
-            }, function (data) {
-                //error things go here
-                return;
             });
     };
 }]);
