@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-smart-progressbar', [])
+angular.module('smart-progressbar', [])
     .config(['$provide', function ($provide) {
         $provide.decorator('ngClickDirective', [
             '$delegate', '$parse',

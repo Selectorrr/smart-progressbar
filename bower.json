@@ -1,10 +1,13 @@
 {
-	"name": "angular-smart-progressbar-demo",
-	"version": "0.0.0",
+	"name": "smart-progressbar",
+	"version": "0.0.2",
+	"main": [
+		"smart-progressbar.min.js"
+	],
 	"authors": [
 		"Stepan Litvinov <litvinovsd@gmail.com>"
 	],
-	"description": "Demo",
+	"description": "Smart progressbar",
 	"keywords": [
 	],
 	"license": "MIT",
