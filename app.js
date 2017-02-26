@@ -20,7 +20,7 @@ config(['$routeProvider', '$locationProvider', '$compileProvider', function($rou
 	var staticPath;
 	// staticPath ='/angular-services/angular-smart-progressbar/';		//local
 	// staticPath ='/';		//nodejs (local)
-	staticPath ='/angular-smart-progressbar/';		//gh-pages
+    staticPath = '/smart-progressbar/';		//gh-pages
 	var appPathRoute ='/';
 	var pagesPath =staticPath+'pages/';
 	
