@@ -1,23 +1,32 @@
 {
-	"name": "smart-progressbar",
+  "name": "smart-progressbar",
   "version": "0.0.4",
-	"main": [
-		"smart-progressbar.min.js"
-	],
-	"authors": [
-		"Stepan Litvinov <litvinovsd@gmail.com>"
-	],
-	"description": "Smart progressbar",
-	"keywords": [
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"devDependencies": {
-	}
+  "main": [
+    "smart-progressbar.min.js"
+  ],
+  "authors": [
+    "Stepan Litvinov <litvinovsd@gmail.com>"
+  ],
+  "description": "Smart progressbar",
+  "keywords": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-sanitize": "^1.6.2",
+    "angular-touch": "^1.6.2",
+    "jquery": "2.2.4",
+    "bootstrap": "3.3.6",
+    "bootstrap-material-design": "v0.5.10"
+  },
+  "dependencies": {
+
+  }
 }

@@ -5,47 +5,37 @@
 
     <title>smart-progressbar</title>
     <!-- Material Design fonts -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/smart-progressbar/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Bootstrap Material Design -->
-    <link href="http://fezvrasta.github.io/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet">
-    <link href="http://fezvrasta.github.io/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+    <link href="/smart-progressbar/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="/smart-progressbar/bower_components/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet">
 </head>
 <body>
 <div ng-view class="container"></div>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-sanitize.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.min.js"></script>
+<script src="/smart-progressbar/bower_components/angular/angular.min.js"></script>
+<script src="/smart-progressbar/bower_components/angular-route/angular-route.min.js"></script>
+<script src="/smart-progressbar/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/smart-progressbar/bower_components/angular-touch/angular-touch.min.js"></script>
 
-<script type="text/javascript" src="smart-progressbar.js"></script>
-<!--<script type="text/javascript" src="smart-progressbar.min.js"></script>-->
+<script type="text/javascript" src="smart-progressbar.min.js"></script>
 
 <script type="text/javascript" src="app.js"></script>
 
 <script type="text/javascript" src="pages/home/HomeCtrl.js"></script>
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<!-- Twitter Bootstrap -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Material Design for Bootstrap -->
-<script src="http://fezvrasta.github.io/bootstrap-material-design/dist/js/material.js"></script>
-<script src="http://fezvrasta.github.io/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script src="/smart-progressbar/bower_components/jquery/dist/jquery.js"></script>
+<script src="/smart-progressbar/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/smart-progressbar/bower_components/bootstrap-material-design/dist/js/material.js"></script>
+<script src="/smart-progressbar/bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
 <script>
-    $.material.init();
+$.material.init();
 </script>
 
-<!-- Dropdown.js -->
-<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
-<script>
-    $("#dropdown-menu select").dropdown();
-</script>
 </body>
 </html>
