@@ -317,7 +317,7 @@ angular.module('smart-progressbar', [])
                 '<div class="sk-circle12 sk-child"></div> </div></div>');
         angular.element(document.body).append(progress);
 
-        angular.element(document.head).append(angular.element('<style type="text/css">.sk-wrapper{position: absolute;' +
+        angular.element(document.head).append(angular.element('<style type="text/css">.sk-wrapper{position: fixed;' +
             'top: 0;left: 0;right: 0;bottom: 0;z-index: ' + spOptions['z-index'] + ';visibility: hidden;transition: '
             + spOptions.transition + ';background-color: ' + spOptions['background-color'] + ';}' +
             '.sk-circle{margin:auto;width:40px;height:40px;position: absolute;top: 0;left: 0;right: 0;bottom: 0;}' +
