@@ -1,5 +1,5 @@
 # smart-progressbar.js
-This is a very smart progress bar, which itself decides when it appears depending on the load. Also it prohibits double clicking on the buttons by default.
+This is a very smart progress bar, which itself decides when it appears depending on the load.
 
 ## Usage
 Download ***smart-progressbar.js*** manually or install with bower
