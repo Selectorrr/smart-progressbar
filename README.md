@@ -1,8 +1,6 @@
 # smart-progressbar.js
 This is a very smart progress bar, which itself decides when it appears depending on the load.
 
-![Preview](https://selectorrr.github.io/smart-progressbar/images/smart-progressbar.gif)
-
 ## Usage
 Download ***smart-progressbar.js*** manually or install with bower
 ```bash
