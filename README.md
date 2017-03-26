@@ -12,7 +12,24 @@ Include ***smart-progressbar.js*** ( or ***smart-progressbar.min.js***) in your 
 ```
 
 Set ***smart-progressbar*** as a dependency in your module
-
-    var app = angular.module('app', ['smart-progressbar']);
-    
+```javascript
+var app = angular.module('app', ['smart-progressbar']);
+```    
 ## That's it!
+
+
+## Options
+
+To configure the progress bar, just create a constant:
+```javascript
+app.constant('spOptionsDefaults', {
+        'background-color': 'black',
+        'z-index': '2147483647',
+        transition: 'all 0.5s ease',
+        opacity: '0.5',
+        sensitivity: 500,
+        delayTrashHold: 50,
+        minDuration: 700,
+        spinner: 'spinner3' //available options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6' 
+    })
+```    

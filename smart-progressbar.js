@@ -2,14 +2,14 @@
 
 angular.module('smart-progressbar', [])
     .constant('spOptionsDefaults', {
-        'background-color': 'white',
+        'background-color': 'black',
         'z-index': '2147483647',
         transition: 'all 0.5s ease',
         opacity: '0.5',
         sensitivity: 500,
         delayTrashHold: 50,
         minDuration: 700,
-        'spinner-color': 'white'
+        spinner: 'spinner3'
     })
     .config(['$provide', '$injector', 'spOptionsDefaults', function ($provide, $injector, spOptionsDefaults) {
 
@@ -308,52 +308,44 @@ angular.module('smart-progressbar', [])
         }
 
         var progress = angular
-            .element('<div class="sk-wrapper"><div class="sk-circle"><div class="sk-circle1 sk-child"></div> ' +
-                '<div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> ' +
-                '<div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> ' +
-                '<div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> ' +
-                '<div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> ' +
-                '<div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div> ' +
-                '<div class="sk-circle12 sk-child"></div> </div></div>');
+            .element('<div class="loader-wrapper"><div class="loader">Loading...</div></div>');
         angular.element(document.body).append(progress);
 
-        angular.element(document.head).append(angular.element('<style type="text/css">.sk-wrapper{position: fixed;' +
-            'top: 0;left: 0;right: 0;bottom: 0;z-index: ' + spOptions['z-index'] + ';visibility: hidden;transition: '
-            + spOptions.transition + ';background-color: ' + spOptions['background-color'] + ';}' +
-            '.sk-circle{margin:auto;width:40px;height:40px;position: absolute;top: 0;left: 0;right: 0;bottom: 0;}' +
-            '.sk-circle .sk-child{width:100%;height:100%;position:absolute;left:0;top:0}.sk-circle ' +
-            '.sk-child:before{content:\'\';display:block;margin:0 auto;width:15%;height:15%;background-color:'+spOptions['spinner-color']+';' +
-            'border-radius:100%;-webkit-animation:sk-circleBounceDelay 1.2s infinite ease-in-out both;' +
-            'animation:sk-circleBounceDelay 1.2s infinite ease-in-out both}.sk-circle ' +
-            '.sk-circle2{-webkit-transform:rotate(30deg);-ms-transform:rotate(30deg);transform:rotate(30deg)}' +
-            '.sk-circle .sk-circle3{-webkit-transform:rotate(60deg);-ms-transform:rotate(60deg);transform:rotate(60deg)}' +
-            '.sk-circle .sk-circle4{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}' +
-            '.sk-circle .sk-circle5{-webkit-transform:rotate(120deg);-ms-transform:rotate(120deg);transform:rotate(120deg)}' +
-            '.sk-circle .sk-circle6{-webkit-transform:rotate(150deg);-ms-transform:rotate(150deg);transform:rotate(150deg)}' +
-            '.sk-circle .sk-circle7{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}' +
-            '.sk-circle .sk-circle8{-webkit-transform:rotate(210deg);-ms-transform:rotate(210deg);transform:rotate(210deg)}' +
-            '.sk-circle .sk-circle9{-webkit-transform:rotate(240deg);-ms-transform:rotate(240deg);transform:rotate(240deg)}' +
-            '.sk-circle .sk-circle10{-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}' +
-            '.sk-circle .sk-circle11{-webkit-transform:rotate(300deg);-ms-transform:rotate(300deg);transform:rotate(300deg)}' +
-            '.sk-circle .sk-circle12{-webkit-transform:rotate(330deg);-ms-transform:rotate(330deg);transform:rotate(330deg)}' +
-            '.sk-circle .sk-circle2:before{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.sk-circle ' +
-            '.sk-circle3:before{-webkit-animation-delay:-1s;animation-delay:-1s}.sk-circle ' +
-            '.sk-circle4:before{-webkit-animation-delay:-.9s;animation-delay:-.9s}.sk-circle ' +
-            '.sk-circle5:before{-webkit-animation-delay:-.8s;animation-delay:-.8s}.sk-circle ' +
-            '.sk-circle6:before{-webkit-animation-delay:-.7s;animation-delay:-.7s}.sk-circle ' +
-            '.sk-circle7:before{-webkit-animation-delay:-.6s;animation-delay:-.6s}.sk-circle ' +
-            '.sk-circle8:before{-webkit-animation-delay:-.5s;animation-delay:-.5s}.sk-circle ' +
-            '.sk-circle9:before{-webkit-animation-delay:-.4s;animation-delay:-.4s}.sk-circle ' +
-            '.sk-circle10:before{-webkit-animation-delay:-.3s;animation-delay:-.3s}.sk-circle ' +
-            '.sk-circle11:before{-webkit-animation-delay:-.2s;animation-delay:-.2s}.sk-circle ' +
-            '.sk-circle12:before{-webkit-animation-delay:-.1s;animation-delay:-.1s}@-webkit-keyframes ' +
-            'sk-circleBounceDelay{0%,80%,100%{-webkit-transform:scale(0);transform:scale(0)}40%{-webkit-transform:scale(1);' +
-            'transform:scale(1)}}@keyframes sk-circleBounceDelay{0%,80%,100%{-webkit-transform:scale(0);' +
-            'transform:scale(0)}40%{-webkit-transform:scale(1);transform:scale(1)}}</style>'));
+        angular.element(document.head).append(angular.element('<style type=\"text/css\">.loader-wrapper{' +
+            'z-index: ' + spOptions['z-index'] + ';' +
+            'transition: ' + spOptions.transition + ';' +
+            'background-color: ' + spOptions['background-color'] + ';' +
+            'position: fixed;top: 0;left: 0;right: 0;bottom: 0;visibility: hidden;}' + '.loader-wrapper .loader{margin:auto;position: absolute;top: 0;left: 0;right: 0;bottom: 0;}</style>'));
 
+        if (spOptions.spinner == 'spinner1') {
+            angular.element(document.head).append(angular.element("<style type=\"text/css\">" +
+                ".loader,.loader:after,.loader:before{background:#fff;-webkit-animation:load1 1s infinite ease-in-out;animation:load1 1s infinite ease-in-out;width:1em;height:4em}.loader{color:#fff;text-indent:-9999em;margin:88px auto;position:relative;font-size:8px;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0);-webkit-animation-delay:-.16s;animation-delay:-.16s}.loader:after,.loader:before{position:absolute;top:0;content:''}.loader:before{left:-1.5em;-webkit-animation-delay:-.32s;animation-delay:-.32s}.loader:after{left:1.5em}@-webkit-keyframes load1{0%,100%,80%{box-shadow:0 0;height:4em}40%{box-shadow:0 -2em;height:5em}}@keyframes load1{0%,100%,80%{box-shadow:0 0;height:4em}40%{box-shadow:0 -2em;height:5em}}" +
+                "</style>"));
+        } else if (spOptions.spinner == 'spinner2') {
+            angular.element(document.head).append(angular.element("<style type=\"text/css\">" +
+                ".loader{color:#fff;font-size:8px;margin:100px auto;width:1em;height:1em;border-radius:50%;position:relative;text-indent:-9999em;-webkit-animation:load4 1.3s infinite linear;animation:load4 1.3s infinite linear;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0)}@-webkit-keyframes load4{0%,100%{box-shadow:0 -3em 0 .2em,2em -2em 0 0,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 0}12.5%{box-shadow:0 -3em 0 0,2em -2em 0 .2em,3em 0 0 0,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 -1em}25%{box-shadow:0 -3em 0 -.5em,2em -2em 0 0,3em 0 0 .2em,2em 2em 0 0,0 3em 0 -1em,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 -1em}37.5%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 0,2em 2em 0 .2em,0 3em 0 0,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 -1em}50%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 0,0 3em 0 .2em,-2em 2em 0 0,-3em 0 0 -1em,-2em -2em 0 -1em}62.5%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 0,-2em 2em 0 .2em,-3em 0 0 0,-2em -2em 0 -1em}75%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 0,-3em 0 0 .2em,-2em -2em 0 0}87.5%{box-shadow:0 -3em 0 0,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 0,-3em 0 0 0,-2em -2em 0 .2em}}@keyframes load4{0%,100%{box-shadow:0 -3em 0 .2em,2em -2em 0 0,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 0}12.5%{box-shadow:0 -3em 0 0,2em -2em 0 .2em,3em 0 0 0,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 -1em}25%{box-shadow:0 -3em 0 -.5em,2em -2em 0 0,3em 0 0 .2em,2em 2em 0 0,0 3em 0 -1em,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 -1em}37.5%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 0,2em 2em 0 .2em,0 3em 0 0,-2em 2em 0 -1em,-3em 0 0 -1em,-2em -2em 0 -1em}50%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 0,0 3em 0 .2em,-2em 2em 0 0,-3em 0 0 -1em,-2em -2em 0 -1em}62.5%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 0,-2em 2em 0 .2em,-3em 0 0 0,-2em -2em 0 -1em}75%{box-shadow:0 -3em 0 -1em,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 0,-3em 0 0 .2em,-2em -2em 0 0}87.5%{box-shadow:0 -3em 0 0,2em -2em 0 -1em,3em 0 0 -1em,2em 2em 0 -1em,0 3em 0 -1em,-2em 2em 0 0,-3em 0 0 0,-2em -2em 0 .2em}}" +
+                "</style>"));
+
+        } else if (spOptions.spinner == 'spinner3') {
+            angular.element(document.head).append(angular.element("<style type=\"text/css\">" +
+                ".loader{margin:100px auto;font-size:8px;width:1em;height:1em;border-radius:50%;position:relative;text-indent:-9999em;-webkit-animation:load5 1.1s infinite ease;animation:load5 1.1s infinite ease;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0)}@-webkit-keyframes load5{0%,100%{box-shadow:0 -2.6em 0 0 #fff,1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.5),-1.8em -1.8em 0 0 rgba(255,255,255,.7)}12.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.7),1.8em -1.8em 0 0 #fff,2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.5)}25%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.5),1.8em -1.8em 0 0 rgba(255,255,255,.7),2.5em 0 0 0 #fff,1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}37.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.5),2.5em 0 0 0 rgba(255,255,255,.7),1.75em 1.75em 0 0 #fff,0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}50%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.5),1.75em 1.75em 0 0 rgba(255,255,255,.7),0 2.5em 0 0 #fff,-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}62.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.5),0 2.5em 0 0 rgba(255,255,255,.7),-1.8em 1.8em 0 0 #fff,-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}75%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.5),-1.8em 1.8em 0 0 rgba(255,255,255,.7),-2.6em 0 0 0 #fff,-1.8em -1.8em 0 0 rgba(255,255,255,.2)}87.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.5),-2.6em 0 0 0 rgba(255,255,255,.7),-1.8em -1.8em 0 0 #fff}}@keyframes load5{0%,100%{box-shadow:0 -2.6em 0 0 #fff,1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.5),-1.8em -1.8em 0 0 rgba(255,255,255,.7)}12.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.7),1.8em -1.8em 0 0 #fff,2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.5)}25%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.5),1.8em -1.8em 0 0 rgba(255,255,255,.7),2.5em 0 0 0 #fff,1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}37.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.5),2.5em 0 0 0 rgba(255,255,255,.7),1.75em 1.75em 0 0 #fff,0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}50%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.5),1.75em 1.75em 0 0 rgba(255,255,255,.7),0 2.5em 0 0 #fff,-1.8em 1.8em 0 0 rgba(255,255,255,.2),-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}62.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.5),0 2.5em 0 0 rgba(255,255,255,.7),-1.8em 1.8em 0 0 #fff,-2.6em 0 0 0 rgba(255,255,255,.2),-1.8em -1.8em 0 0 rgba(255,255,255,.2)}75%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.5),-1.8em 1.8em 0 0 rgba(255,255,255,.7),-2.6em 0 0 0 #fff,-1.8em -1.8em 0 0 rgba(255,255,255,.2)}87.5%{box-shadow:0 -2.6em 0 0 rgba(255,255,255,.2),1.8em -1.8em 0 0 rgba(255,255,255,.2),2.5em 0 0 0 rgba(255,255,255,.2),1.75em 1.75em 0 0 rgba(255,255,255,.2),0 2.5em 0 0 rgba(255,255,255,.2),-1.8em 1.8em 0 0 rgba(255,255,255,.5),-2.6em 0 0 0 rgba(255,255,255,.7),-1.8em -1.8em 0 0 #fff}}" +
+                "</style>"))
+        } else if (spOptions.spinner == 'spinner4') {
+            angular.element(document.head).append(angular.element("<style type=\"text/css\">" +
+                ".loader{color:#fff;font-size:30px;text-indent:-9999em;overflow:hidden;width:1em;height:1em;border-radius:50%;margin:72px auto;position:relative;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0);-webkit-animation:load6 1.7s infinite ease,round 1.7s infinite ease;animation:load6 1.7s infinite ease,round 1.7s infinite ease}@-webkit-keyframes load6{0%,100%,5%,95%{box-shadow:0 -.83em 0 -.4em,0 -.83em 0 -.42em,0 -.83em 0 -.44em,0 -.83em 0 -.46em,0 -.83em 0 -.477em}10%,59%{box-shadow:0 -.83em 0 -.4em,-.087em -.825em 0 -.42em,-.173em -.812em 0 -.44em,-.256em -.789em 0 -.46em,-.297em -.775em 0 -.477em}20%{box-shadow:0 -.83em 0 -.4em,-.338em -.758em 0 -.42em,-.555em -.617em 0 -.44em,-.671em -.488em 0 -.46em,-.749em -.34em 0 -.477em}38%{box-shadow:0 -.83em 0 -.4em,-.377em -.74em 0 -.42em,-.645em -.522em 0 -.44em,-.775em -.297em 0 -.46em,-.82em -.09em 0 -.477em}}@keyframes load6{0%,100%,5%,95%{box-shadow:0 -.83em 0 -.4em,0 -.83em 0 -.42em,0 -.83em 0 -.44em,0 -.83em 0 -.46em,0 -.83em 0 -.477em}10%,59%{box-shadow:0 -.83em 0 -.4em,-.087em -.825em 0 -.42em,-.173em -.812em 0 -.44em,-.256em -.789em 0 -.46em,-.297em -.775em 0 -.477em}20%{box-shadow:0 -.83em 0 -.4em,-.338em -.758em 0 -.42em,-.555em -.617em 0 -.44em,-.671em -.488em 0 -.46em,-.749em -.34em 0 -.477em}38%{box-shadow:0 -.83em 0 -.4em,-.377em -.74em 0 -.42em,-.645em -.522em 0 -.44em,-.775em -.297em 0 -.46em,-.82em -.09em 0 -.477em}}@-webkit-keyframes round{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes round{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}" +
+                "</style>"));
+        } else if (spOptions.spinner == 'spinner5') {
+            angular.element(document.head).append(angular.element("<style type=\"text/css\">" +
+                ".loader,.loader:after,.loader:before{border-radius:50%;width:2.5em;height:2.5em;-webkit-animation:load7 1.8s infinite ease-in-out;animation:load7 1.8s infinite ease-in-out}.loader{color:#fff;font-size:5px;margin:80px auto;position:relative;text-indent:-9999em;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0);-webkit-animation-delay:-.16s;animation-delay:-.16s}.loader:after,.loader:before{content:'';position:absolute;top:0}.loader:before{left:-3.5em;-webkit-animation-delay:-.32s;animation-delay:-.32s}.loader:after{left:3.5em}@-webkit-keyframes load7{0%,100%,80%{box-shadow:0 2.5em 0 -1.3em}40%{box-shadow:0 2.5em 0 0}}@keyframes load7{0%,100%,80%{box-shadow:0 2.5em 0 -1.3em}40%{box-shadow:0 2.5em 0 0}}" +
+                "</style>"));
+        } else if (spOptions.spinner == 'spinner6') {
+            angular.element(document.head).append(angular.element("<style type=\"text/css\">" +
+                ".loader,.loader:after{border-radius:50%;width:10em;height:10em}.loader{margin:60px auto;font-size:5px;position:relative;text-indent:-9999em;border-top:1.1em solid rgba(255,255,255,.2);border-right:1.1em solid rgba(255,255,255,.2);border-bottom:1.1em solid rgba(255,255,255,.2);border-left:1.1em solid #fff;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0);-webkit-animation:load8 1.1s infinite linear;animation:load8 1.1s infinite linear}@-webkit-keyframes load8{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes load8{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}" +
+                "</style>"));
+        }
         $rootScope.$watch(_AspPromiseTracker.active, function (isActive) {
             if (isActive) {
-                progress.css({visibility: 'visible', opacity: spOptions.opacity})
+                progress.css({visibility: 'visible', opacity: spOptions.opacity});
             } else {
                 progress.css({visibility: 'hidden', opacity: '0'})
             }
