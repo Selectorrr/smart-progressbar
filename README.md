@@ -22,7 +22,7 @@ var app = angular.module('app', ['smart-progressbar']);
 
 To configure the progress bar, just create a constant:
 ```javascript
-app.constant('spOptionsDefaults', {
+app.constant('spOptions', {
         'background-color': 'black',
         'z-index': '2147483647',
         transition: 'all 0.5s ease',
