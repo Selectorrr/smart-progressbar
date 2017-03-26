@@ -12,30 +12,39 @@
     <link href="/smart-progressbar/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Bootstrap Material Design -->
-    <link href="/smart-progressbar/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="/smart-progressbar/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css"
+          rel="stylesheet">
     <link href="/smart-progressbar/bower_components/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet">
 </head>
 <body>
-<div ng-view class="container"></div>
+<div class="container">
+    <div ng-view></div>
+    <div class='share-buttons text-center'>
+        <iframe src="http://ghbtns.com/github-btn.html?user=Selectorrr&repo=smart-progressbar&type=watch&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=Selectorrr&type=follow&count=true" allowtransparency="true"
+                frameborder="0" scrolling="0" width="175" height="20"></iframe>
+    </div>
 
-<script src="/smart-progressbar/bower_components/angular/angular.min.js"></script>
-<script src="/smart-progressbar/bower_components/angular-route/angular-route.min.js"></script>
-<script src="/smart-progressbar/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="/smart-progressbar/bower_components/angular-touch/angular-touch.min.js"></script>
 
-<script type="text/javascript" src="smart-progressbar.min.js"></script>
+    <script src="/smart-progressbar/bower_components/angular/angular.min.js"></script>
+    <script src="/smart-progressbar/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/smart-progressbar/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/smart-progressbar/bower_components/angular-touch/angular-touch.min.js"></script>
 
-<script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="smart-progressbar.min.js"></script>
 
-<script type="text/javascript" src="pages/home/HomeCtrl.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 
-<script src="/smart-progressbar/bower_components/jquery/dist/jquery.js"></script>
-<script src="/smart-progressbar/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="/smart-progressbar/bower_components/bootstrap-material-design/dist/js/material.js"></script>
-<script src="/smart-progressbar/bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
-<script>
-$.material.init();
-</script>
+    <script type="text/javascript" src="pages/home/HomeCtrl.js"></script>
+
+    <script src="/smart-progressbar/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/smart-progressbar/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/smart-progressbar/bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="/smart-progressbar/bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+    <script>
+        $.material.init();
+    </script>
 
 </body>
 </html>
